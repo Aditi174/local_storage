@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>carbon</title>
+</head>
+<body>
+    <input type="text">
+    <h2></h2>
+
+    <script>
+        const input = document.querySelector("input");
+        const h2 = document.querySelector("h2");
+        h2.innerText = localStorage.getItem('key');
+
+        input.addEventListener("keyup", function(event) {
+            if (event.key === "Enter" || event.keyCode === 13) {
+                // Set an item in Local Storage
+                localStorage.setItem('key', input.value);
+
+
+                h2.innerText = localStorage.getItem('key');
+                input.value = ""; // Clear the input value
+            }
+        });
+    </script>
+</body>
+</html>
